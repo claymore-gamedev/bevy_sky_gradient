@@ -5,10 +5,7 @@ use bevy::{
 };
 
 use crate::{
-    cycle::{SkyTime, SkyTimeSettings},
-    gradient::{Gradient, SkyGradientBuilder, SkyGradients},
-    gradient_material::FullGradientMaterial,
-    plugin::GradientTextureHandle,
+    aurora_material::AuroraMaterial, cycle::{SkyTime, SkyTimeSettings}, gradient::{Gradient, SkyGradientBuilder, SkyGradients}, gradient_material::FullGradientMaterial, plugin::GradientTextureHandle,
 };
 
 /// animates the sky gradients, REQUIRES CyclePlugin.
@@ -75,10 +72,15 @@ fn drive_gradients(
 fn resize_gradient_on_window_change(
     mut resize_events: MessageReader<WindowResized>,
     mut images: ResMut<Assets<Image>>,
+    aurora_material_optional: Option<Res<Assets<AuroraMaterial>>>,
     aurora_handles: Res<GradientTextureHandle>,
     primary_windows: Query<&Window, With<PrimaryWindow>>,
     mut repeated_calls: Local<i32>,
 ) {
+    if aurora_material_optional.is_none() {
+        return;
+    };
+
     let mut update_texture = false;
     for event in resize_events.read() {
         let is_primary = primary_windows.get(event.window).is_ok();

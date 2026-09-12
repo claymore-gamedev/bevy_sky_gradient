@@ -4,7 +4,7 @@ use bevy::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 
-/// All the current colors that controlls the sky gradient
+/// All the current colors that controls the sky gradient
 /// a sky gradient has 4 colors, and we animate it based upon the "sky time"
 /// gradient stops 0.0 -> 0.5 = DAY time colors
 /// gradient stops 0.5 -> 1.0 = NIGHT time colors

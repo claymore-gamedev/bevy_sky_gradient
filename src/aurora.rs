@@ -17,7 +17,7 @@ pub struct AuroraCameraTag;
 
 #[derive(Resource, Reflect, Clone)]
 pub struct AuroraSettings {
-    /// controlls size of the render target of the aurora material
+    /// controls size of the render target of the aurora material
     /// a value of 1.0: use 100% of the windows screen size. aka full quality.
     /// a value of 0.5: will render the aurora 50% of the screen and be upscaled 200%
     pub render_texture_percent: f32,
@@ -90,7 +90,7 @@ fn aurora_follow_camera(
 fn resize_aurora_on_window_change(
     mut resize_events: MessageReader<WindowResized>,
     mut images: ResMut<Assets<Image>>,
-    aurora_material_optional: Option<ResMut<Assets<AuroraMaterial>>>,
+    aurora_material_optional: Option<Res<Assets<AuroraMaterial>>>,
     aurora_handles: Res<AuroraTextureHandle>,
     aurora_settings: Res<AuroraSettings>,
     primary_windows: Query<&Window, With<PrimaryWindow>>,

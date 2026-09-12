@@ -39,13 +39,13 @@ impl Default for SkySettings {
     }
 }
 
-/// controlls what features you want.
+/// controls what features you want.
 /// you might not want to use the default Cycle/SunDriver/GradientDriver/Aurora for example
 /// then you can skip that plugin and implement your own.
 pub struct SkyPluginBuilder {
     pub settings: SkySettings,
     /// if enabled, the full sky is rendered to a texture
-    /// usefull if you need to sample the sky for a fog effect for example
+    /// useful if you need to sample the sky for a fog effect for example
     pub render_sky_to_texture: bool,
     pub use_preset_plugin: bool,
     pub noise: NoisePlugin,

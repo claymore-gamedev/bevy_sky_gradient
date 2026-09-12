@@ -262,7 +262,7 @@ fn make_noise_sampler() -> ImageSampler {
     })
 }
 
-/// will wait until a noisetextureasset is loaded, then override the texture data
+/// will wait until a NoiseTextureAsset is loaded, then override the texture data
 #[cfg(feature = "serde")]
 #[derive(Resource)]
 pub struct PendingNoiseTextureAsset(Handle<NoiseTextureAsset>);
